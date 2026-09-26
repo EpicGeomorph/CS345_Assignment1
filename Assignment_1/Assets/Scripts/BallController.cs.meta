@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: d150d56c304691e45bf4469e1d50ecd3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ballHitClip: {fileID: 8300000, guid: 9a8c1e3e21ef28048950d218d706d911, type: 3}
+  - ballRollClip: {fileID: 8300000, guid: 5b671bba098cce14db71a1d329631dcc, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
