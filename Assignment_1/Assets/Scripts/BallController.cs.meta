@@ -6,6 +6,7 @@ MonoImporter:
   defaultReferences:
   - ballHitClip: {fileID: 8300000, guid: 9a8c1e3e21ef28048950d218d706d911, type: 3}
   - ballRollClip: {fileID: 8300000, guid: 5b671bba098cce14db71a1d329631dcc, type: 3}
+  - coinClip: {fileID: 8300000, guid: a8a72312453072544a39623cb87dae72, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
