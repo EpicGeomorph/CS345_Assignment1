@@ -7,7 +7,7 @@ using System;
 public class TableRotator : MonoBehaviour
 {
     // Variables
-    public float rotationSpeed = 10;
+    public float rotationSpeed = 30;
     public float angularLimit = 20;
 
     // Runs before the first frame of the script

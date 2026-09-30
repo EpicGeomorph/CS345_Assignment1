@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using UnityEngine;
+using UnityEditor.Build.Reporting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
+
 
 public class BallController : MonoBehaviour
 {
@@ -17,6 +19,9 @@ public class BallController : MonoBehaviour
     private bool isTouchingTable = true;
     private GameObject table;
     public GameObject moneyParticleSystem;
+    public bool teleport_cd = false;
+    public int teleport_wait = 2;
+    public float counter = 0;
 
     // Audio
     private AudioSource myAudio, effectsAudio;
@@ -45,6 +50,16 @@ public class BallController : MonoBehaviour
 
     void Update()
     {
+        if (teleport_cd) {
+            if (counter > teleport_wait) {
+                teleport_cd = false;
+                counter = 0;
+            } else {
+                counter += Time.deltaTime;
+            }
+        }
+        
+
         if (Input.GetKey(KeyCode.R))
         {
             // Stop all velocities and move to original position
@@ -102,6 +117,14 @@ public class BallController : MonoBehaviour
 
             ScoreDisplay.scoreValue++;
             Instantiate(moneyParticleSystem, other.gameObject.transform.position, Quaternion.identity, other.gameObject.transform.parent.transform);
+        } else if (other.gameObject.tag == "Teleporter") {
+            if (teleport_cd) { return; }
+            teleport_cd = true;
+            List<GameObject> portals = new List<GameObject>(GameObject.FindGameObjectsWithTag("Teleporter"));
+            portals.Remove(this.gameObject);
+
+            GameObject random_portal = portals[Random.Range(0,portals.Count)];
+            rigidbody.transform.position = random_portal.transform.position;
         }
     }
 }
