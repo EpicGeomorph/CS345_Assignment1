@@ -13,12 +13,14 @@ public class CameraTransform : MonoBehaviour
             Debug.Log("defaultTarget target not specified. Defaulting to parent GameObject");
         }
 
-        positionOffset = transform.position - targetObject.transform.position;
+        //positionOffset = transform.position - targetObject.transform.position;
+        transform.position = new Vector3(0, 40, 0);
+        transform.LookAt(GameObject.Find("Tables").transform);
     }
 
     void Update()
     {
-        transform.position = positionOffset + targetObject.transform.position;
-        transform.LookAt(targetObject.transform);
+        //transform.position = positionOffset + targetObject.transform.position;
+        //transform.LookAt(targetObject.transform);
     }
 }
