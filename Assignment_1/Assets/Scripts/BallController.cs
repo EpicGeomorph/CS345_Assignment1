@@ -78,10 +78,10 @@ public class BallController : MonoBehaviour
         }
 
         // Handle Jumping!
-        if (Input.GetKey(KeyCode.Space) && isTouchingTable /*Physics.Raycast(transform.position,Vector3.down,0.51f)*/)
-        {
-            rigidbody.linearVelocity = new Vector3(rigidbody.linearVelocity.x, jumpForce, rigidbody.linearVelocity.z);
-        }
+        //if (Input.GetKey(KeyCode.Space) && isTouchingTable /*Physics.Raycast(transform.position,Vector3.down,0.51f)*/)
+        //{
+        //    rigidbody.linearVelocity = new Vector3(rigidbody.linearVelocity.x, jumpForce, rigidbody.linearVelocity.z);
+        //}
 
         // Update Sound Settings
         myAudio.volume = rigidbody.linearVelocity.magnitude / 5.0f;
