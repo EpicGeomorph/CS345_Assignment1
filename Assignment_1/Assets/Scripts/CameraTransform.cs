@@ -5,6 +5,7 @@ public class CameraTransform : MonoBehaviour
     public GameObject targetObject;
     private Vector3 positionOffset;
     private bool cameraType = false;
+    public float lastCamSwap = 0;
 
     void Start()
     {
@@ -21,8 +22,10 @@ public class CameraTransform : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space))
+        Debug.Log(Time.time - lastCamSwap);
+        if(Input.GetKey(KeyCode.Space) && (Time.time - lastCamSwap > 1))
         {
+            lastCamSwap = Time.time;
             cameraType = !cameraType;
         }
 
